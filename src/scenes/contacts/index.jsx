@@ -4,14 +4,15 @@ import { tokens } from "../../theme";
 import { mockDataContacts } from "../../data/mockData";
 import Header from "../../components/Header";
 import { useTheme } from "@emotion/react";
+import { Box } from "@mui/system";
 
-const Team = () => {
+const Contacts = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
 
   const columns = [
     { field: "id", headerName: "ID", flex: 0.5 },
-    { field: "registrard", headerName: "Registrar ID" },
+    { field: "registrarId", headerName: "Registrar ID" },
     {
       field: "name",
       headerName: "Name",
@@ -51,40 +52,11 @@ const Team = () => {
       headerName: "ZipCode",
       flex: 1,
     },
-    {
-      field: "access",
-      headerName: "Access Level",
-      flex: 1,
-      renderCell: ({ row: { access } }) => {
-        return (
-          <Box
-            display="flex"
-            width="60%"
-            m="0 auto"
-            p="5px 20px"
-            justifyContent="space-between"
-            backgroundColor={
-              access === "admin"
-                ? colors.greenAccent[600]
-                : colors.greenAccent[700]
-            }
-            borderRadius="4px"
-          >
-            {access === "admin" && <AdminPanelSettingsOutlinedIcon />}
-            {access === "manager" && <SecurityOutlinedIcon />}
-            {access === "user" && <LockOpenOutlinedIcon />}
-            <Typography color={colors.grey[100]} sx={{ ml: "5px" }}>
-              {access}
-            </Typography>
-          </Box>
-        );
-      },
-    },
   ];
 
   return (
     <Box m="20px">
-      <Header title="TEAM" subTitle="Managing the Team Members" />
+      <Header title="CONTACTS" subTitle="List of Contacts for Future Reference" />
       <Box
         m="40px 0 0 0 "
         height="75vh"
@@ -109,12 +81,15 @@ const Team = () => {
             borderTop: "none",
             backgroundColor: colors.blueAccent[700],
           },
+          "& .MuiDataGrid-toolbarContainer .MuiButton-text": {
+            color: `${colors.grey[100]} !important`
+          }
         }}
       >
-        <DataGrid rows={mockDataTeam} columns={columns} />
+        <DataGrid rows={mockDataContacts} columns={columns} components={{Toolbar: GridToolbar}}  />
       </Box>
     </Box>
   );
 };
 
-export default Team;
+export default Contacts;

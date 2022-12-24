@@ -1,14 +1,14 @@
 import React from "react";
 import { Box, Typography, useTheme } from "@mui/material";
-import { DataGrid, GridToolbar } from "@mui/x-data-grid";
+import { DataGrid } from "@mui/x-data-grid";
 import { tokens } from "../../theme";
-import { mockDataTeam } from "../../data/mockData";
+import { mockDataInvoices } from "../../data/mockData";
 import AdminPanelSettingsOutlinedIcon from "@mui/icons-material/AdminPanelSettingsOutlined";
 import LockOpenOutlinedIcon from "@mui/icons-material/LockOpenOutlined";
 import SecurityOutlinedIcon from "@mui/icons-material/SecurityOutlined";
 import Header from "../../components/Header";
 
-const Team = () => {
+const Invoices = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
 
@@ -18,14 +18,6 @@ const Team = () => {
       field: "name",
       headerName: "Name",
       flex: 1,
-      cellClassName: "name-column--cell",
-    },
-    {
-      field: "age",
-      headerName: "Age",
-      type: "number",
-      headerAlign: "left",
-      align: "left",
       cellClassName: "name-column--cell",
     },
     {
@@ -39,39 +31,25 @@ const Team = () => {
       flex: 1,
     },
     {
-      field: "access",
-      headerName: "Access Level",
+      field: "date",
+      headerName: "Date",
       flex: 1,
-      renderCell: ({ row: { access } }) => {
-        return (
-          <Box
-            display="flex"
-            width="60%"
-            m="0 auto"
-            p="5px 20px"
-            justifyContent="space-between"
-            backgroundColor={
-              access === "admin"
-                ? colors.greenAccent[600]
-                : colors.greenAccent[700]
-            }
-            borderRadius="4px"
-          >
-            {access === "admin" && <AdminPanelSettingsOutlinedIcon />}
-            {access === "manager" && <SecurityOutlinedIcon />}
-            {access === "user" && <LockOpenOutlinedIcon />}
-            <Typography color={colors.grey[100]} sx={{ ml: "5px" }}>
-              {access}
-            </Typography>
-          </Box>
-        );
-      },
+    },
+    {
+      field: "cost",
+      headerName: "Cost",
+      flex: 1,
+      renderCell: (params) => (
+        <Typography color={colors.greenAccent[500]}>
+          ${params.row.cost}
+        </Typography>
+      ),
     },
   ];
 
   return (
     <Box m="20px">
-      <Header title="TEAM" subTitle="Managing the Team Members" />
+      <Header title="INVOICES" subTitle="List of Invocies Balances" />
       <Box
         m="40px 0 0 0 "
         height="75vh"
@@ -96,15 +74,15 @@ const Team = () => {
             borderTop: "none",
             backgroundColor: colors.blueAccent[700],
           },
-          "& .MuiDataGrid-toolbarContainer .MuiButton-text": {
-            color: `${colors.grey[100]} !important`
-          }
+          "& .MuiCheckbox-root": {
+            color: `${colors.greenAccent[200]} !important`,
+          },
         }}
       >
-        <DataGrid rows={mockDataTeam} columns={columns} components={{Toolbar: GridToolbar}} />
+        <DataGrid rows={mockDataInvoices} columns={columns} checkboxSelection />
       </Box>
     </Box>
   );
 };
 
-export default Team;
+export default Invoices;
