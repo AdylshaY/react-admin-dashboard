@@ -1281,3 +1281,42 @@ export const mockGeographyData = [
     value: 171135,
   },
 ];
+
+export const mockFaqData = [
+  {
+    id: 1,
+    header: "How to use?",
+    detail:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem facilis perferendis vero? Quia pariatur modi similique eum dolores asperiores velit ipsum beatae, consequuntur placeat minima cumque odio quod. Natus, voluptatem!",
+  },
+  {
+    id: 2,
+    header: "How to create user?",
+    detail:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem facilis perferendis vero? Quia pariatur modi similique eum dolores asperiores velit ipsum beatae, consequuntur placeat minima cumque odio quod. Natus, voluptatem!",
+  },
+  {
+    id: 3,
+    header: "How to use tables?",
+    detail:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem facilis perferendis vero? Quia pariatur modi similique eum dolores asperiores velit ipsum beatae, consequuntur placeat minima cumque odio quod. Natus, voluptatem!",
+  },
+  {
+    id: 4,
+    header: "How to use charts?",
+    detail:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem facilis perferendis vero? Quia pariatur modi similique eum dolores asperiores velit ipsum beatae, consequuntur placeat minima cumque odio quod. Natus, voluptatem!",
+  },
+  {
+    id: 5,
+    header: "How to create new manager?",
+    detail:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem facilis perferendis vero? Quia pariatur modi similique eum dolores asperiores velit ipsum beatae, consequuntur placeat minima cumque odio quod. Natus, voluptatem!",
+  },
+  {
+    id: 6,
+    header: "How to create new admin?",
+    detail:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem facilis perferendis vero? Quia pariatur modi similique eum dolores asperiores velit ipsum beatae, consequuntur placeat minima cumque odio quod. Natus, voluptatem!",
+  },
+];
